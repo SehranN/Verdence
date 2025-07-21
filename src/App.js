@@ -1,23 +1,38 @@
 import logo from './logo.svg';
 import './App.css';
+import "@fontsource/inria-sans/300.css"; // Light
+import "@fontsource/inria-sans/400.css"; // Regular
+import "@fontsource/inria-sans/700.css"; // Bold
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Dashboard from './pages/dashboard';
+import HomePage from './pages/homePage';
+import SignUpPage from './pages/signUp';
+import SignUpQuestions from './pages/signUpQuestions';
+
+import HistoryPage from './pages/historyPage';
+
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/signup-questions" element={<SignUpQuestions />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/history" element={<HistoryPage />} />
+          
+          
+        </Routes>
+      </Router>
+
+      
+
+
     </div>
   );
 }

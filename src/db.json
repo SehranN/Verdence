@@ -1,0 +1,318 @@
+{
+    "userProfile": {
+        "name": "John Doe",
+        "age": 29,
+        "occupation": "Software Engineer",
+        "country": "United Kingdom",
+        "riskTolerance": "Moderately Aggressive",
+        "investmentExperience": "Intermediate",
+        "investmentTimeHorizon": "3 - 5 yr",
+        "annualIncome": ">£100,000",
+        "netWorth": 75000,
+        "investmentAmount": 35000,
+        "monthlyContribution": 1500,
+        "goals": ["Build long term wealth", "Generate passive income"],
+        "securities": ["ETFs", "Stocks", "Crypto"],
+        "primaryObjective": "Maximize growth",
+        "userIntent": "Increase risk-adjusted returns",
+        "preference": "Manual control",
+        "wants": ["Sustainable investments"]
+    },
+
+    "portfolioHeader": {
+        "netWorth": {
+            "value": 75000,
+            "changePercent": 5.2
+        },
+        "invested": {
+            "value": 35000,
+            "changePercent": 3.7
+        },
+        "totalReturns": {
+            "value": 4200,
+            "changePercent": 12.0
+        },
+        "profitLoss": {
+            "value": 1200,
+            "changePercent": 2.5
+        },
+        "riskLevel": {
+            "value": "7.0+-",
+            "rating": "Moderate"
+        }
+    },
+
+    "allocation": {
+        "growthGBP": {
+            "value": 27500,
+            "changePercent": 4.1
+        },
+        "assets": [
+            {
+                "fullName": "Apple Inc.",
+                "shortName": "AAPL",
+                "type": "Stock",
+                "allocationPercent": 25,
+                "allocationGBP": 8750,
+                "pnlGBP": 250,
+                "change1MPercent": 2.4,
+                "expected12MChangePercent": 8.5
+            },
+            {
+                "fullName": "Vanguard S&P 500 ETF",
+                "shortName": "VOO",
+                "type": "ETF",
+                "allocationPercent": 40,
+                "allocationGBP": 14000,
+                "pnlGBP": 520,
+                "change1MPercent": 1.7,
+                "expected12MChangePercent": 7.2
+            },
+            {
+                "fullName": "Ethereum",
+                "shortName": "ETH",
+                "type": "Crypto",
+                "allocationPercent": 35,
+                "allocationGBP": 12250,
+                "pnlGBP": -120,
+                "change1MPercent": -3.2,
+                "expected12MChangePercent": 15.0
+            },
+            {
+                "fullName": "Ethereum",
+                "shortName": "ETH",
+                "type": "Crypto",
+                "allocationPercent": 35,
+                "allocationGBP": 12250,
+                "pnlGBP": -120,
+                "change1MPercent": -3.2,
+                "expected12MChangePercent": 15.0
+            },
+            {
+                "fullName": "Ethereum",
+                "shortName": "ETH",
+                "type": "Crypto",
+                "allocationPercent": 35,
+                "allocationGBP": 12250,
+                "pnlGBP": -120,
+                "change1MPercent": -3.2,
+                "expected12MChangePercent": 15.0
+            },
+            {
+                "fullName": "Ethereum",
+                "shortName": "ETH",
+                "type": "Crypto",
+                "allocationPercent": 35,
+                "allocationGBP": 12250,
+                "pnlGBP": -120,
+                "change1MPercent": -3.2,
+                "expected12MChangePercent": 15.0
+            }
+        ]
+    },
+
+    "portfolioInsights": {
+        "dailyUpdate": "UK and European equity markets edged higher yesterday as inflation cooled across the eurozone and UK wage growth showed signs of stabilising. The FTSE 100 gained 0.3%, supported by strength in consumer staples and energy sectors. Meanwhile, the British Pound strengthened slightly against the U.S. dollar after dovish comments from the Federal Reserve. Investors are now pricing in fewer global rate hikes, boosting appetite for diversified equity exposure.",
+        "marketNews": "Global markets show optimism following positive earnings reports.",
+        "stocksOnTheMove": ["AAPL +2.4%", "TSLA -1.1%", "VOO +1.2%"],
+        "companyNews": ["Apple announces record revenue this quarter."],
+        "currencyWatch": "GBP/USD trading at 1.29, showing 0.8% weekly increase."
+    },
+
+    "performers": {
+        "best": [
+            {
+            "logo": "apple.png",
+            "shortName": "AAPL",
+            "changePercent": 5.2,
+            "pnl": 400,
+            "graph": "graph1.png"
+            },
+            {
+            "logo": "voo.png",
+            "shortName": "VOO",
+            "changePercent": 4.1,
+            "pnl": 520,
+            "graph": "graph2.png"
+            }
+        ],
+        "worst": [
+            {
+            "logo": "eth.png",
+            "shortName": "ETH",
+            "changePercent": -3.2,
+            "pnl": -120,
+            "graph": "graph3.png"
+            },
+            {
+            "logo": "fxe.png",
+            "shortName": "FXE",
+            "changePercent": -1.5,
+            "pnl": -40,
+            "graph": "graph4.png"
+            }
+        ]
+    },
+
+    "goals": [
+        {
+            "name": "Net-worth",
+            "growthPercent": 52,
+            "saved": 75000,
+            "target": 100000
+        },
+        {
+            "name": "Investments",
+            "growthPercent": 68,
+            "saved": 35000,
+            "target": 50000
+        },
+        {
+            "name": "Generate passive income",
+            "growthPercent": 43,
+            "saved": 15000,
+            "target": 30000
+        }
+    ],
+
+    "portfolioScore": {
+        "score": 680,
+        "rating": "Good",
+        "percentile": "75thPercentile",
+        "riskMatch": {
+            "value": 8,
+            "rating": "Excellent"
+        },
+        "riskAdjustedReturn": {
+            "value": 7,
+            "rating": "Good"
+        },
+        "downsideProtection": {
+            "value": 5,
+            "rating": "Fair"
+        }
+    },
+
+    "historyChart": {
+        "period": "2 years",
+        "currentMonth": "Jul 2025",
+        "growthPercent": 14.5,
+        "chartData": [
+            { "month": "Jul 2023", "value": 18000 },
+            { "month": "Jul 2024", "value": 24000 },
+            { "month": "Jul 2025", "value": 27500 }
+        ],
+        "forecast": {
+            "75thPercentile": 40000,
+            "medianGrowth": 33000,
+            "25thPercentile": 28000
+        }
+    },
+
+
+    "aiSummary": {
+        "shortSummary": "Your portfolio is moderately well-structured and aligns with your long-term goals. There is room to improve performance through better allocation and reducing idle capital.",
+        "suggestedActions": [
+        "Reallocate 5-10% of cash into high-performing global equities or thematic ETFs.",
+        "Reduce UK bond weight from 20% to 10-15% to boost growth potential.",
+        "Introduce thematic ETFs (e.g. AI, clean energy) to diversify return sources.",
+        "Trim crypto exposure if it exceeds 5-10% to reduce volatility."
+        ],
+        "portfolioScore": {
+        "score": 745,
+        "rating": "Fair",
+        "summary": "Your portfolio exhibits a great risk match with your financial goals, although your risk-adjusted returns and downside protection show moderate performance with room for improvement."
+        },
+        "retirementReadiness": {
+        "score": 83,
+        "comment": "You are almost on track to retire by 67. Some adjustments could help you reach a more secure position."
+        },
+        "whatsGoingWell": [
+        "Your portfolio is well-diversified across different market sectors, reducing industry-specific risks.",
+        "Portfolio holdings show low correlation with each other, indicating strong diversification benefits.",
+        "Strong geographic diversification in your portfolio protects against country-specific risks."
+        ],
+        "hiddenOpportunities": [
+        "A significant 21.8% of your portfolio is idle cash, which could generate £669 in annual growth if invested at the expected return of the rest of your portfolio.",
+        "High concentration in individual holdings may expose your investments to company-specific risks."
+        ],
+        "howYouCompare": [
+        "Your expected return of 6.1% ranks in the top 45% compared to other moderately conservative investors.",
+        "High annual fees of £38 are higher than for 83% of PortfolioPilot users.",
+        "Your net worth is in the top 20% for your age group (18-24yo)."
+        ],
+        "allocationInsights": {
+        "summary": "On first look the current allocation shows aggressive growth patterns on contrast to your moderate risk appetite which is in the range of 5.0±. Also you have nearly 10% of idle cash which when invested could potentially increase returns.",
+        "suggestions": [
+            {
+            "action": "Reduce Cash from 10% → 3-5%",
+            "why": "Holding 10% in cash lowers your growth potential.",
+            "aiSuggestion": "Reallocate 5-7% into higher-yielding global equities or alternative assets.",
+            "instruments": [
+                "Vanguard FTSE All-World UCITS ETF (~7-8%)",
+                "WisdomTree Cloud Computing ETF (~10-18%)",
+                "iShares UK Property UCITS ETF (~4%)"
+            ]
+            },
+            {
+            "action": "Increase Global Exposure (IWRD) from 15% → 20-25%",
+            "why": "Improves diversification beyond UK-centric risk.",
+            "aiSuggestion": "Boost international diversification with global ETFs like IWRD for long-term growth."
+            },
+            {
+            "action": "Shift Bond Allocation (VGOV) from 20% → 10-15%",
+            "why": "Bonds are low-return, currently dragging expected returns down.",
+            "aiSuggestion": "Reallocate into higher-yield corporate or inflation-linked bonds.",
+            "instruments": [
+                "Vanguard Global Corporate Bond UCITS ETF (~4.5%)",
+                "iShares GBP Index-Linked Gilts UCITS ETF (~3-4%)",
+                "iShares High Yield Corp Bond ETF (~7-8%)"
+            ]
+            },
+            {
+            "action": "Add Thematic or Sectoral ETF (~5%)",
+            "why": "Can give higher return exposure (e.g., AI, tech, green energy).",
+            "aiSuggestion": "Introduce thematic ETFs to improve long-term growth while staying diversified.",
+            "instruments": [
+                "ROBO (~10-15%)",
+                "INRG (~10-12%)",
+                "ISPY (~9-12%)"
+            ]
+            }
+        ]
+        },
+        "performanceInsights": [
+        {
+            "instrument": "AZN & FTSE 100",
+            "performance": "Both AZN and FTSE 100 are showing consistent gains.",
+            "aiSuggestion": "Hold. These offer stability and reliable income.",
+            "optional": "Consider slightly increasing AZN for more defensive healthcare exposure."
+        },
+        {
+            "instrument": "BTCX (Bitcoin Tracker)",
+            "performance": "A 1.10% drop is modest but may reflect broader sentiment weakness.",
+            "aiSuggestion": "Trim allocation if crypto exposure >5-10%.",
+            "optional": "Reallocate to stable growth assets like tech or clean energy ETFs."
+        },
+        {
+            "instrument": "VGOV (UK Gilts)",
+            "performance": "Mild loss suggests interest rate sensitivity still affecting bond returns.",
+            "aiSuggestion": "Hold, but consider reducing from 20% → 10-15%.",
+            "optional": "Replace some VGOV with short-duration bond funds or multi-asset income ETFs."
+        }
+        ],
+        "portfolioScoreInsights": {
+        "sharpeRatio": 0.25,
+        "summary": "Your portfolio's risk-adjusted return (i.e. Sharpe Ratio) is 0.25.",
+        "note": "Currently, a Sharpe Ratio above 0.6 is considered Good (9/10). Risk-free rate assumed at ~4.5%.",
+        "chartDescription": "Bar chart with 8 categories ranging from -0.075 to 0.075 showing individual asset contribution to portfolio Sharpe Ratio.",
+        "suggestedActions": [
+            "Replace underperforming assets with higher Sharpe Ratio instruments.",
+            "Introduce more balanced ETFs to enhance the risk-adjusted profile.",
+            "Reduce exposure to high-volatility, low-contribution assets like certain altcoins or low-yield bonds."
+        ]
+        }
+    }
+    
+      
+}
