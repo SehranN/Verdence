@@ -28,7 +28,7 @@ const History = () => {
         </div>
 
         <div className="flex flex-wrap gap-6">
-        {[1, 2, 3].map((_, i) => (
+        {[1].map((_, i) => (
             <div
             key={i}
             className="bg-white w-full sm:w-[48%] lg:w-[32%] rounded-xl shadow-sm p-6 flex flex-col gap-6"

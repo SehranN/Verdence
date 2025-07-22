@@ -1,8 +1,35 @@
+import React from 'react';
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function SignupPage() {
-  const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+    const [password, setPassword] = useState("");
+
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        password: '',
+
+        });
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+      
+        // Basic validation
+        if (
+          !formData.name || !formData.email || !formData.password
+        ) {
+          alert("Please fill all required fields.");
+          return;
+        }
+      
+        console.log(formData.name)
+      
+        navigate("/signup-questions", { state: { name: formData.name } });
+      
+        // Navigate or show next step
+      };
 
   return (
     <div className="min-h-screen grid grid-cols-1 md:grid-cols-2 bg-offWhite">
@@ -19,7 +46,7 @@ export default function SignupPage() {
                 <div className="w-full max-w-md space-y-8">
                 <h1 className="text-7xl font-bold text-darkGreen">Sign Up</h1>
         
-                <form className="space-y-6">
+                <form className="space-y-6" onSubmit={handleSubmit}>
                     {/* Full Name */}
                     <div>
                     <label className="block mb-1 text-sm font-medium text-darkGreen">
@@ -27,6 +54,7 @@ export default function SignupPage() {
                     </label>
                     <input
                         type="text"
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="Enter your full name"
                         className="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-darkGreen transition-all duration-500"
                     />
@@ -39,6 +67,7 @@ export default function SignupPage() {
                     </label>
                     <input
                         type="email"
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="Enter your email"
                         className="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-darkGreen transition-all duration-500"
                     />
@@ -52,8 +81,12 @@ export default function SignupPage() {
                     <input
                         type="password"
                         placeholder="Enter password"
+                        
                         value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        onChange={(e) => {
+                            setFormData({ ...formData, password: e.target.value })
+                            setPassword(e.target.value)
+                        }}
                         className="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-darkGreen transition-all duration-500"
                     />
                     {password.length > 0 && password.length < 8 && (
@@ -62,14 +95,14 @@ export default function SignupPage() {
                         </p>
                     )}
                     </div>
-                    <Link to="/signup-questions" className="">
-                        <button
-                        type="submit"
-                        className="min-w-[200px] mt-4 w-full flex items-center justify-center gap-2 rounded-full bg-card-gradient bg-[length:200%] bg-left hover:bg-right transition-[background-position] duration-500 px-6 py-2 font-inria text-xl text-darkGreen"
-                        >
-                        Sign Up
-                        </button>
-                    </Link>
+                    
+                    <button
+                    type="submit"
+                    className="min-w-[200px] mt-4 w-full flex items-center justify-center gap-2 rounded-full bg-card-gradient bg-[length:200%] bg-left hover:bg-right transition-[background-position] duration-500 px-6 py-2 font-inria text-xl text-darkGreen"
+                    >
+                    Sign Up
+                    </button>
+                    
                     
                 </form>
                 <div className="flex flex-row justify-center items-center w-full h-fit gap-4">
@@ -88,9 +121,9 @@ export default function SignupPage() {
         
                 <p className="text-sm text-darkGreen text-center">
                     Already have an account?{" "}
-                    <Link to="/login" className="text-darkGreen font-medium underline">
+                    
                     Login here
-                    </Link>
+                    
                 </p>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ButtonDark from './buttonDark';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
@@ -40,9 +40,83 @@ const Portfolio = ({data = []}) => {
         );
       };
 
+      const [showSuggestions, setShowSuggestions] = useState(false);
+
 
     return (
+        
         <div className='row-start-2 col-start-2 overflow-y-auto p-6 bg-offWhite flex flex-col gap-4 font-inria'>
+            {showSuggestions && (
+                
+                <div
+                    className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center"
+                    onClick={() => setShowSuggestions(false)}
+                    >
+                    <div
+                        className="bg-white rounded-xl p-6 w-full max-w-3xl max-h-[80vh] overflow-y-auto shadow-lg relative"
+                        onClick={(e) => e.stopPropagation()} // Prevent close on inner click
+                    >
+                        <h2 className="text-xl font-bold mb-2 text-darkGreen">AI Summary</h2>
+                        <p className="mb-4 text-gray-700">{data.aiSummary.shortSummary}</p>
+
+                        <section className="mb-4">
+                        <h3 className="font-semibold text-darkGreen">Suggested Actions</h3>
+                        <ul className="list-disc list-inside text-sm text-gray-800">
+                            {data.aiSummary.suggestedActions.map((item, idx) => (
+                            <li key={idx}>{item}</li>
+                            ))}
+                        </ul>
+                        </section>
+
+                        <section className="mb-4">
+                        <h3 className="font-semibold text-darkGreen">Portfolio Score</h3>
+                        <p><strong>Score:</strong> {data.aiSummary.portfolioScore.score} ({data.aiSummary.portfolioScore.rating})</p>
+                        <p className="text-sm text-gray-700">{data.aiSummary.portfolioScore.summary}</p>
+                        </section>
+
+                        <section className="mb-4">
+                        <h3 className="font-semibold text-darkGreen">Retirement Readiness</h3>
+                        <p><strong>Score:</strong> {data.aiSummary.retirementReadiness.score}</p>
+                        <p className="text-sm text-gray-700">{data.aiSummary.retirementReadiness.comment}</p>
+                        </section>
+
+                        <section className="mb-4">
+                        <h3 className="font-semibold text-darkGreen">What's Going Well</h3>
+                        <ul className="list-disc list-inside text-sm text-gray-800">
+                            {data.aiSummary.whatsGoingWell.map((item, idx) => (
+                            <li key={idx}>{item}</li>
+                            ))}
+                        </ul>
+                        </section>
+
+                        <section className="mb-4">
+                        <h3 className="font-semibold text-darkGreen">Hidden Opportunities</h3>
+                        <ul className="list-disc list-inside text-sm text-gray-800">
+                            {data.aiSummary.hiddenOpportunities.map((item, idx) => (
+                            <li key={idx}>{item}</li>
+                            ))}
+                        </ul>
+                        </section>
+
+                        <section className="mb-4">
+                        <h3 className="font-semibold text-darkGreen">How You Compare</h3>
+                        <ul className="list-disc list-inside text-sm text-gray-800">
+                            {data.aiSummary.howYouCompare.map((item, idx) => (
+                            <li key={idx}>{item}</li>
+                            ))}
+                        </ul>
+                        </section>
+
+                        <button
+                        className="absolute top-3 right-3 text-gray-500 hover:text-black"
+                        onClick={() => setShowSuggestions(false)}
+                        >
+                        ✕
+                        </button>
+                    </div>
+                </div>
+                
+            )}
 
             {/* Top Banner */}
             <div className="flex flex-row items-center justify-between gap-4 w-full relative">
@@ -106,8 +180,8 @@ const Portfolio = ({data = []}) => {
                     
                 </div>
                 
-                <div>
-                    <ButtonDark text='Get AI Summary' />
+                <div onClick={() => {setShowSuggestions(true)}}>
+                    <ButtonDark text='Get AI Summary'  />
                 </div>
             </div>
 

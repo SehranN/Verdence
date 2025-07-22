@@ -56,7 +56,7 @@ const HomePage = () => {
                 </div>
 
                 <p className="text-2xl font-inria text-left text-darkGreen font-bold">
-                Verdence helps you track performance, manage risk, and optimize returns —
+                Verdence helps you track performance, manage risk, and optimize returns also help you achieve financial freedom —
                 all in one dashboard. Harness the power of AI for your growth.
                 </p>
             </div>

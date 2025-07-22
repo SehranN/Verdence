@@ -3,9 +3,12 @@ import ButtonDark from '../components/buttonDark';
 import ButtonLight from '../components/buttonLight';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 
 const SignUpQuestions = () => {
+    const navigate = useNavigate();
 
     const ProgressBar = ({ progress }) => {
         return (
@@ -194,6 +197,73 @@ const SignUpQuestions = () => {
 
     const progressMon = ((valueMon - 1000) / (100000 - 1000)) * 100;
 
+    const [userProfile, setUserProfile] = useState([]);
+
+    const [formData, setFormData] = useState({
+        name: '',
+        age: '',
+        occupation: '',
+        country: '',
+        income: '',
+        netWorth: valueNet,
+        investment: valueInv,
+        monthly: valueMon,
+        duration: selectedTime,
+        experience: selectedExp,
+        risk: selectedRisk,
+        securities: selectedSecurities.map(([label]) => label),
+        goals: selected.map(([label]) => label),
+        objective: selectedObj,
+        use: selectedUse,
+        preference: selectedPref,
+        want: selectedWant
+    });
+
+    const location = useLocation();
+    const name = location.state?.name || "Guest";
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+      
+        // Basic validation
+        if (
+          !formData.age || !formData.occupation || !formData.country ||
+          !selectedInc || !selectedTime || !selectedExp || !selectedRisk ||
+          selected.length === 0 || selectedSecurities.length === 0 ||
+          !selectedObj || !selectedUse || !selectedPref || !selectedWant
+        ) {
+          alert("Please fill all required fields.");
+          return;
+        }
+      
+        const profile = {
+            name: name,
+            age: formData.age,
+            occupation: formData.occupation,
+            country: formData.country,
+            incomeRange: selectedInc,
+            netWorth: valueNet,
+            investAmount: valueInv,
+            monthlyContribution: valueMon,
+            duration: selectedTime,
+            experience: selectedExp,
+            riskTolerance: selectedRisk,
+            goals: selected.map(([label]) => label),
+            securities: selectedSecurities.map(([label]) => label),
+            objective: selectedObj,
+            use: selectedUse,
+            preference: selectedPref,
+            want: selectedWant
+        };
+      
+        setUserProfile((prev) => [...prev, profile]);
+        console.log("User profile saved:", profile);
+        navigate('/dashboard', { state: { profile } });
+      
+        
+      };
+      
+
 
 
       
@@ -224,7 +294,7 @@ const SignUpQuestions = () => {
 
                     
         
-                    <form className="space-y-6">
+                    <form className="space-y-6" onSubmit={handleSubmit}>
 
                         <h2 className='text-center text-2xl font-bold font-inria text-darkGreen'>Personal Information</h2>
                         
@@ -233,8 +303,10 @@ const SignUpQuestions = () => {
                             Age
                         </label>
                         <input
-                            type="text"
+                            type="number"
+                            required
                             name='age'
+                            onChange={(e) => setFormData({ ...formData, age: e.target.value })}
                             placeholder="Enter age"
                             className="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-darkGreen transition-all duration-500"
                         />
@@ -247,7 +319,9 @@ const SignUpQuestions = () => {
                         </label>
                         <input
                             type="text"
+                            required
                             name='occupation'
+                            onChange={(e) => setFormData({ ...formData, occupation: e.target.value })}
                             placeholder="Enter sector"
                             className="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-darkGreen transition-all duration-500"
                         />
@@ -260,7 +334,9 @@ const SignUpQuestions = () => {
                         </label>
                         <input
                             type="text"
+                            required
                             name='country'
+                            onChange={(e) => setFormData({ ...formData, country: e.target.value })}
                             placeholder="Enter country"
                             className="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-darkGreen transition-all duration-500"
                         />
@@ -280,6 +356,7 @@ const SignUpQuestions = () => {
                                 >
                                     <input
                                     type="checkbox"
+                                    
                                     value={label}
                                     checked={selected.includes(label)}
                                     onChange={() => {
@@ -328,8 +405,9 @@ const SignUpQuestions = () => {
                                         }`}
                                     >
                                         <input
+                                        required
                                         type="radio"
-                                        name="income"
+                                        
                                         value={inc}
                                         checked={selectedInc === inc}
                                         onChange={() => toggleInc(inc)}
@@ -369,8 +447,10 @@ const SignUpQuestions = () => {
                                     min={1000}
                                     max={100000}
                                     step={1000}
+                                    required
                                     value={valueNet}
                                     onChange={handleNetChange}
+                                    data-testid="networth-slider"
                                     className="w-full h-2 appearance-none cursor-pointer"
                                     style={{
                                         background: `linear-gradient(to right, #003E31 0%, #003E31 ${progress}%, #C9FFE6 ${progress}%, #C9FFE6 100%)`,
@@ -433,8 +513,10 @@ const SignUpQuestions = () => {
                                     min={1000}
                                     max={100000}
                                     step={1000}
+                                    required
                                     value={valueInv}
                                     onChange={handleInvChange}
+                                    data-testid="investment-slider"
                                     className="w-full h-2 appearance-none cursor-pointer"
                                     style={{
                                         background: `linear-gradient(to right, #003E31 0%, #003E31 ${progressInv}%, #C9FFE6 ${progressInv}%, #C9FFE6 100%)`,
@@ -497,8 +579,10 @@ const SignUpQuestions = () => {
                                     min={1000}
                                     max={100000}
                                     step={1000}
+                                    required
                                     value={valueMon}
                                     onChange={handleMonChange}
+                                    data-testid="monthly-slider"
                                     className="w-full h-2 appearance-none cursor-pointer"
                                     style={{
                                         background: `linear-gradient(to right, #003E31 0%, #003E31 ${progressMon}%, #C9FFE6 ${progressMon}%, #C9FFE6 100%)`,
@@ -550,7 +634,8 @@ const SignUpQuestions = () => {
                                     >
                                         <input
                                         type="radio"
-                                        name="income"
+                                        
+                                        required
                                         value={time}
                                         checked={selectedTime === time}
                                         onChange={() => toggleTime(time)}
@@ -581,7 +666,8 @@ const SignUpQuestions = () => {
                                     >
                                         <input
                                         type="radio"
-                                        name="expierence"
+                                        
+                                        required
                                         value={exp}
                                         checked={selectedExp === exp}
                                         onChange={() => toggleExp(exp)}
@@ -609,7 +695,7 @@ const SignUpQuestions = () => {
                                 >
                                     <input
                                     type="radio"
-                                    name="risk"
+                                    
                                     value={label}
                                     checked={selectedRisk === label}
                                     onChange={() => toggleRisk(label)}
@@ -782,15 +868,16 @@ const SignUpQuestions = () => {
                         </div>
 
 
-                        <Link to="/dashboard">
+                        
                             <button
                             type="submit"
+                            data-testid="submit-button"
                             className="min-w-[200px] mt-4 w-full flex items-center justify-center gap-2 rounded-full bg-card-gradient bg-[length:200%] bg-left hover:bg-right transition-[background-position] duration-500 px-6 py-2 font-inria text-xl text-darkGreen"
                             >
                             Next
                             </button>
                         
-                        </Link>
+                        
                         
                     </form>
 

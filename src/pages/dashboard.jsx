@@ -1,24 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import "@fontsource/inria-sans/300.css"; // Light
-import "@fontsource/inria-sans/400.css"; // Regular
-import "@fontsource/inria-sans/700.css"; // Bold
 import ButtonDarkImg from '../components/buttonDarkImg';
 import Portfolio from '../components/portfolio';
 import History from '../components/history';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 
 const Dashboard = () => {
 
     const [data, setData] = useState({});
     const [loading, setLoading] = useState(true);
-  
+    const { state } = useLocation();
+    const userProfile = state?.profile || [];
+
+
     useEffect(() => {
       const fetchAll = async () => {
         try {
           const [
-            userProfile,
+            
             portfolioHeader,
             allocation,
             portfolioInsights,
@@ -28,7 +29,7 @@ const Dashboard = () => {
             historyChart,
             aiSummary
           ] = await Promise.all([
-            axios.get("http://localhost:3001/userProfile"),
+            
             axios.get("http://localhost:3001/portfolioHeader"),
             axios.get("http://localhost:3001/allocation"),
             axios.get("http://localhost:3001/portfolioInsights"),
@@ -40,7 +41,7 @@ const Dashboard = () => {
           ]);
   
           setData({
-            user: userProfile.data,
+            user: userProfile,
             header: portfolioHeader.data,
             allocation: allocation.data,
             insights: portfolioInsights.data,
@@ -50,6 +51,7 @@ const Dashboard = () => {
             history: historyChart.data,
             aiSummary: aiSummary.data
           });
+          console.log(userProfile)
   
         } catch (err) {
           console.error("Failed to fetch dashboard data", err);
